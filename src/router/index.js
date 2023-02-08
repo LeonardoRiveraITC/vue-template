@@ -8,6 +8,21 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/calc',
+    name: 'calculadora',
+    component: CalcView
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -21,5 +36,8 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-
+router.beforeEach(async (to,from)=>{
+  //if(!user && to.name!=='Login'){return {name:'login'}}
+  return false;
+})
 export default router

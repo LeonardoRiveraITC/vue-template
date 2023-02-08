@@ -25,9 +25,19 @@
 import {ref} from "vue"
 let drawer=ref(true)
 const navLinks=[
-    {title:"Home",to:"home",icon:"mdi-home-circle"},
-    {title:"Conversion de monedas",to:"calc",icon:"mdi-circle-multiple"},
+    {title:"Home",to:"/",icon:"mdi-home-circle"}, 
     {title:"Mi perfil",to:"profile",icon:"mdi-card-account-details"},
-    {title:"Clima",to:"climate",icon:"mdi-cloud-circle"},
+    {title:"Conversion",to:"calc",icon:"mdi-circle-multiple"}, 
+    {title:"Clima",to:"climate",icon:"mdi-cloud-circle"}, 
+    {title:"About",to:"about",icon:"mdi-information"}, 
+    {title:"Cerrar Sesión",to:"logout",icon:"mdi-exit-to-app"},
 ]
 </script>
+<style>
+#title{
+  font-size: 5m;
+  font-family: 'Courier New', Courier, monospace;
+  color: darkgoldenrod;
+  text-align: center;
+}
+</style>
