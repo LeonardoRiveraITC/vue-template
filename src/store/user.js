@@ -9,8 +9,23 @@ export const useUserStore = defineStore('user', {
    }),
   getters: {
     fullName: (state) => state.firstName+' '+state.lastName,
+    getUserName:(state)=>state.username,
+    getFirstName:(state)=>state.firstName,
+    getLastName:(state)=>state.lastName,
+    getLinkedIn:(state)=>state.linkedIn,
+    getGithub:(state)=>state.github,
   },
   actions: {
+    setGithub(ghub){
+      this.github=ghub
+    },
+    setLinkedin(ldin){
+      this.linkedIn=ldin
+    },
+    setFullName(fname,lname){
+      this.fullName=fname;
+      this.lastName=lname;
+    },
     login(user) {
       //fetch user from backend
       this.username=user

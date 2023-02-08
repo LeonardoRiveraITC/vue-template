@@ -6,7 +6,6 @@
 </template>
 
 <script setup>
-import {ref,computed} from 'vue';
 import {useUserStore} from '@/store/user.js'
 import HelloWorld from '@/components/HelloWorld.vue'
 //state methods

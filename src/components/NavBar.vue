@@ -16,12 +16,15 @@
 
       <v-navigation-drawer v-model="drawer" temporary>
         <v-list>
-          <v-list-item v-for="item in navLinks" :key="item.id" :prepend-icon="item.icon" :title="item.title" :to="item.to"/>
+          <v-list-item v-for="item in navLinks" :key="item.id" :prepend-icon="item.icon" :title="item.title" :to="item.to"/> 
+          <v-list-item @click="userStore.logout" prepend-icon="mdi-exit-to-app" title="Cerrar sesión" to="/login"/>
         </v-list>
       </v-navigation-drawer>
 </template>
 
 <script setup>
+import {useUserStore} from '@/store/user.js'
+const userStore=useUserStore();
 import {ref} from "vue"
 let drawer=ref(true)
 const navLinks=[

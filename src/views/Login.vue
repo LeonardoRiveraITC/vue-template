@@ -1,6 +1,5 @@
-
 <template>
-<v-card class="mx-auto my-12 px-6 py-8" max-width="344">
+<v-card elevation="18" append-icon="mdi-account" class="mx-auto my-12 px-6 py-8" max-width="50%">
       <v-form
         v-model="form"
         @submit.prevent="onSubmit">
