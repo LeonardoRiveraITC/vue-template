@@ -1,5 +1,4 @@
 <template>
-<v-app>
       <v-app-bar
         color="yellow-darken-1"
         prominent
@@ -20,7 +19,6 @@
           <v-list-item v-for="item in navLinks" :key="item.id" :prepend-icon="item.icon" :title="item.title" :to="item.to"/>
         </v-list>
       </v-navigation-drawer>
-</v-app>
 </template>
 
 <script setup>

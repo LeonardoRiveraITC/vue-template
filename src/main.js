@@ -7,6 +7,8 @@ import router from './router'
 
 loadFonts()
 
-createApp(App).use(router).use(createPinia())
+createApp(App)
+  .use(router)
+  .use(createPinia())
   .use(vuetify)
   .mount('#app')
