@@ -1,25 +1,35 @@
 <template>
 <v-app>
-  <v-container>
-        <v-navigation-drawer
-        floating
-        >
-        <v-list
-        expand-on-hover
-        rail
-        > 
+      <v-app-bar
+        color="yellow-darken-1"
+        prominent
+      >
+        <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+
+        <v-toolbar-title>Conversión de monedas</v-toolbar-title>
+
+        <v-spacer></v-spacer>
+
+        <v-btn variant="text" icon="mdi-magnify"></v-btn>
+        <v-btn variant="text" icon="mdi-filter"></v-btn>
+        <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
+      </v-app-bar>
+
+      <v-navigation-drawer v-model="drawer" temporary>
+        <v-list>
           <v-list-item v-for="item in navLinks" :key="item.id" :prepend-icon="item.icon" :title="item.title" :to="item.to"/>
         </v-list>
-      </v-navigation-drawer> 
-  </v-container>
-</v-app>  
+      </v-navigation-drawer>
+</v-app>
 </template>
 
 <script setup>
+import {ref} from "vue"
+let drawer=ref(true)
 const navLinks=[
-    {title:"Home",to:"home",icon:"home-circle"},
-    {title:"Conversion de monedas",to:"calc",icon:"hand-coin"},
-    {title:"Mi perfil",to:"profile",icon:"card-account-details"},
-    {title:"Clima",to:"climate",icon:"cloud-circle"},
+    {title:"Home",to:"home",icon:"mdi-home-circle"},
+    {title:"Conversion de monedas",to:"calc",icon:"mdi-circle-multiple"},
+    {title:"Mi perfil",to:"profile",icon:"mdi-card-account-details"},
+    {title:"Clima",to:"climate",icon:"mdi-cloud-circle"},
 ]
 </script>
