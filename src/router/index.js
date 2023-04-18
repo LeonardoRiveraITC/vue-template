@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-
+import Login from '@/views/Login.vue'
+import {useUserStore} from '@/store/user.js'
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
     path: '/about',
@@ -16,10 +22,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   }
 ]
-
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
+router.beforeEach(async (to, from) => {
+  const userStore=useUserStore();
+  if (!userStore.username && to.name !== 'Login') {
+    return { name: 'Login' }
+  }
+})
 export default router
