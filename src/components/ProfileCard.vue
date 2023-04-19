@@ -53,7 +53,7 @@
             </v-card-text>
             <v-card-actions >
                 <v-col cols="auto">
-                    <v-btn v-show="!props.enabled">Actualizar</v-btn>
+                    <v-btn @click="userStore.updateProfile(user,firstName,lastName,linkedin,github)" v-show="!props.enabled">Actualizar</v-btn>
                 </v-col>     
             </v-card-actions>
             </div>
