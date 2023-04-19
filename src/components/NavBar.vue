@@ -28,7 +28,7 @@ const userStore=useUserStore();
 import {ref} from "vue"
 let drawer=ref(true)
 const navLinks=[
-    {title:"Home",to:"home",icon:"mdi-home-circle"},
+    {title:"Home",to:"/",icon:"mdi-home-circle"},
     {title:"Conversion de monedas",to:"calc",icon:"mdi-circle-multiple"},
     {title:"Mi perfil",to:"profile",icon:"mdi-card-account-details"},
     {title:"Clima",to:"climate",icon:"mdi-cloud-circle"},

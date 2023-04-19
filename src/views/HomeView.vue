@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <h1>Bienvenido a la plantilla de vue {{userStore.username}}</h1>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld :user="userStore.username"/>
   </div>
 </template>
 

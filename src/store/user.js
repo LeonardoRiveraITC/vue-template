@@ -16,6 +16,13 @@ export const useUserStore = defineStore('user', {
     getGithub:(state)=>state.github,
   },
   actions: {
+    updateProfile(user,fname,lname,ldin,ghub){
+      this.username=user;
+      this.firstName=fname;
+      this.lastName=lname;
+      this.linkedIn=ldin;
+      this.github=ghub;
+    },
     setGithub(ghub){
       this.github=ghub
     },

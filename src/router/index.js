@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import Login from '@/views/Login.vue'
 import Profile from '@/views/Profile.vue'
+import Conversion from '@/views/CurrencyConversion.vue'
 import {useUserStore} from '@/store/user.js'
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
+  },
+  {
+    path: '/calc',
+    name: 'Calc',
+    component: Conversion
   },
   {
     path: '/about',
