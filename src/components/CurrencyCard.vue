@@ -56,7 +56,7 @@
               </v-row>
             <v-card-actions >
                 <v-col cols="auto">
-                    <v-btn>Convertir</v-btn>
+                    <v-btn @click="conv()">Convertir</v-btn>
                 </v-col>     
             </v-card-actions>
         </v-card>
@@ -65,6 +65,7 @@
 </template>
 <script setup>
 import {ref,computed,onMounted,reactive} from 'vue';
+import axios from 'axios';
 //state methods
 const form=ref(false);
 const amount=ref(1);
@@ -81,7 +82,16 @@ const toConv=ref({
 const items=ref([{ state: 'Mexican Peso', abbr: 'MXN' },
           { state: 'US Dollar', abbr: 'USD' },
           { state: 'Euro', abbr: 'EUR' }])
+const conv=()=>{
+  let fromC=String(fromConv.value.abbr).toLowerCase(); 
+  let toC=String(toConv.value.abbr).toLowerCase();
+  let url="https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/"+fromC+"/"+toC+".json"
+  axios.get(url).then(function (res){
+    const itemsM=Array.from(items);
+    const currMap=itemsM.map((abbr)=>console.log(res.abbr))
+    //alert(res.data.usd*amount.value);
+  })
+}
 onMounted(()=>{
-    
 })
 </script>
