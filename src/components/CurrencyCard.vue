@@ -66,11 +66,6 @@
 <script setup>
 import {ref,computed,onMounted,reactive} from 'vue';
 import axios from 'axios';
-//state methods
-const form=ref(false);
-const amount=ref(1);
-const required = (v) =>{return !!v || 'Field is required'}
-const negative = (v) =>{if (v<1) amount.value=1}
 const fromConv=ref({
     state:'Mexican peso',
     abbr:'MXN'
@@ -82,14 +77,20 @@ const toConv=ref({
 const items=ref([{ state: 'Mexican Peso', abbr: 'MXN' },
           { state: 'US Dollar', abbr: 'USD' },
           { state: 'Euro', abbr: 'EUR' }])
+
+//state methods
+const amount=ref(1);
+const amountShow=ref();
+const required = (v) =>{return !!v || 'Field is required'}
+const negative = (v) =>{if (v<1) amount.value=1}
+
 const conv=()=>{
-  let fromC=String(fromConv.value.abbr).toLowerCase(); 
-  let toC=String(toConv.value.abbr).toLowerCase();
-  let url="https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/"+fromC+"/"+toC+".json"
+  const fromC=String(fromConv.value.abbr).toLowerCase(); 
+  const toC=String(toConv.value.abbr).toLowerCase();
+  const url="https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/"+fromC+"/"+toC+".json"
   axios.get(url).then(function (res){
-    const itemsM=Array.from(items);
-    const currMap=itemsM.map((abbr)=>console.log(res.abbr))
-    //alert(res.data.usd*amount.value);
+    const converted=(res.data[toC]*amount.value)
+    alert(amount.value+' '+fromC+' son '+ converted + ' ' +toC)
   })
 }
 onMounted(()=>{
