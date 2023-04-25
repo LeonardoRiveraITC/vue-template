@@ -65,6 +65,7 @@
 </template>
 <script setup>
 import {ref,computed,onMounted,reactive} from 'vue';
+//https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/eur/jpy.json
 //state methods
 const form=ref(false);
 const amount=ref(1);
